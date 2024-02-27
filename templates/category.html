@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if movies %}
+<div>
+    <p class="text-center my_genre">Your Choices: <b>"{{ genres.name }}"</b></p>
+</div>
+<div class="container">
+    <div class="row mx-auto">
+        {% for movie in movies %}
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <a href="{% url 'finalapp:detail' movie.id %}">
+                    <img src="{{ movie.image.url }}" alt="{{ movie.name }}" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5><br>
+                    <p class="card-text">{{ movie.genres }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<p class="text-center my_genre">No movies found for this genre</p>
+{% endif %}
+{% endblock %}

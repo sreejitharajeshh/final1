@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if query %}
+<div>
+    <p class="text-center my_searches">You have searched for: <b>"{{ query }}"</b></p>
+</div>
+<div class="container">
+    <div class="row mx-auto">
+        {% for movie in movies %}
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <a href="{% url 'finalapp:detail' movie.id %}">
+                    <img src="{{ movie.image.url }}" alt="{{ movie.name }}" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5><br>
+                    <p class="card-text">{{ movie.year }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if movies|length == 0 %}
+    <p class="text-center my_searches">0 results found</p>
+    {% endif %}
+</div>
+{% else %}
+<p class="text-center my_searches">No search query entered</p>
+{% endif %}
+{% endblock %}

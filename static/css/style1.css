@@ -1,0 +1,225 @@
+/* Add custom styles here */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #333;
+    color: #fff;
+    text-align: center; /* Center align the text */
+    z-index: 9999; /* Ensures the navbar is above other content */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+}
+
+.navbar-buttons {
+    margin-left: auto;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin: 100px auto 0; /* Adjusted top margin to make space for the navbar */
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Login page styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#login .container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#login h1 {
+    text-align: center;
+}
+
+#login form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#login input[type="text"],
+#login input[type="email"],
+#login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#login input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#login input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+/* profile page styles */
+
+body {
+
+font-size:18px;
+	line-height:0.9;
+	font-family:Arial, Helvetica, Sans-Serif;
+	color:black;
+	background:url('images/body-bg.gif');
+}
+
+
+
+
+        /* Make the container full-size */
+        #profile.container {
+
+            width: 750px; /* Make the container full-width */
+            height: 590px; /* Set the height to fill the entire viewport */
+            display: flex; /* Use flexbox to arrange items */
+            justify-content: space-between; /* Space items evenly */
+            align-items: left; /* Center vertically */
+            flex-direction: row-reverse; /* Reverse the order of items */
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 100px auto 0; /* Adjusted top margin to make space for the navbar */
+        }
+
+        .profile {
+            width: 880px; /* Adjust the width of the profile section */
+            max-width: 2000px; /* Set a maximum width for the profile section */
+            text-align: left; /* Align text to the left */
+        }
+
+        .heading {
+            width: 400px; /* Adjust the width of the heading */
+            text-align: center; /* Center text */
+        }
+
+        /* Increase font size for profile information */
+        .profile input[type="text"],
+        .profile input[type="Email"],
+        .profile input[type="Username"],
+        .profile input[type="First Name"],
+        .profile input[type="Date"],
+        .profile input[type="Profile Photo"],
+        .container input[type="file"],
+        .profile button,
+        .profile input[type="Last Name"] {
+            font-size: -2em; /* Adjust the font size as needed */
+        }
+
+ .profile-info h2 {
+	font-size:25px;
+	text-align: center;
+	color:#f2a223;
+	font-weight:bold;
+}
+
+/* Add these styles to your style.css file */
+
+/* Button styles */
+button, .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for anchor tags */
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Buttons Container styles */
+.buttons-container {
+    position: fixed;
+    bottom: 20px;
+    right: 500px;
+    display: flex;
+    flex-direction: row; /* Arrange buttons horizontally */
+}
+
+.buttons-container button, .buttons-container a {
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.desc {
+    width: 100%; /* Make the description field span the full width */
+    padding: 10px; /* Add padding to the description field */
+    margin: 10px 0; /* Add margin for spacing */
+    border: 1px solid #ccc; /* Add border for visual separation */
+    border-radius: 4px; /* Add border radius for rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    display: block; /* Display the description field as a block-level element */
+}

@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>MovieHunter</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+<script type="text/javascript" src="{% static 'js/jquery-1.4.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-func.js' %}"></script>
+<!--[if IE 6]>
+<link rel="stylesheet" href="{% static 'css/ie6.css' %}" type="text/css" media="all" />
+<![endif]-->
+</head>
+<body>
+<div id="shell">
+  <div id="header">
+    <h1 id="logo"><a href="#">MovieHunter</a></h1>
+    <div class="social"> <span>FOLLOW US ON:</span>
+      <ul>
+        <li><a class="twitter" href="#">twitter</a></li>
+        <li><a class="facebook" href="#">facebook</a></li>
+        <li><a class="vimeo" href="#">vimeo</a></li>
+        <li><a class="rss" href="#">rss</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="#">NEWS</a></li>
+        <li><a href="#">IN THEATERS</a></li>
+
+<div class="btn-group">
+<button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="color: white; margin-top: -6px; font-weight: bold;">
+    GENRES
+  </button>
+<ul class="dropdown-menu dropdown-menu-genres">
+    {% for genre in genres %}
+      <li><a class="dropdown-item" href="{% url 'finalapp:category' genre.name %}">{{ genre.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+          <li><a href="{% url 'finalapp:logout' %}">LOGOUT</a></li>
+        <li><a href="{% url 'finalapp:profile' %}">PROFILE</a></li>
+      </ul>
+    </div>
+    <div id="sub-navigation">
+      <ul>
+          <li><a href="#">SHOW ALL</a></li>
+        <li><a href="#">LATEST TRAILERS</a></li>
+        <li><a href="#">TOP RATED</a></li>
+        <li><a href="#">MOST COMMENTED</a></li>
+      </ul>
+      <div id="search">
+        <form action="{% url 'finalapp:search' %}" method="get" accept-charset="utf-8">
+          <label for="search-field">SEARCH</label>
+          <input type="text" name="q" placeholder="Enter search here" id="search-field" class="blink search-field"  />
+          <input type="submit" value="GO!" class="search-button" />
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+          <h2>LATEST TRAILERS</h2>
+          <p class="text-right"><a href="{% url 'finalapp:add' %}">ADD</a></p>
+
+        </div>
+        {% for movie in movies %}
+          <div class="movie">
+
+           <div class="movie-image"> <span class="play"><span class="name">{{ movie.name }}</span></span> <img src="{{ movie.image.url }}" alt=""></div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+                <button onclick="window.location.href='{% url 'finalapp:detail' movie.id %}'" class="go-button">GO</button>
+
+            <span class="comments">{{ movie.comments }}</span>
+
+
+          </div>
+
+         </div>
+        {% endfor %}
+        <div class="cl">&nbsp;</div>
+      </div>
+    </div>
+    <div id="news">
+    <div class="head">
+        <h3>REVIEWS</h3>
+        <p class="text-right"><a href="{% url 'finalapp:review'  %}">POST</a></p>
+    </div>
+    {% if reviews %}
+    <div class="content">
+        {% for review in reviews %}
+        <h4>{{ review.name }}</h4>
+        <p>{{ review.desc }}</p>
+        <a href="#">Read more</a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No reviews available</p>
+    {% endif %}
+</div>
+    <div id="coming">
+<div class="head">
+        <h3>COMING SOON<strong> !</strong></h3>
+        <p class="text-right"><a href="#">See all</a></p>
+      </div>
+      <div class="content">
+        <h4>The Princess and the Frog </h4>
+        <a href="#"><img src="{% static 'css/images/coming-soon1.jpg' %}" alt="" /></a>
+        <p>Walt Disney Animation Studios presents the musical &quot;The Princess and the Frog,&quot; an animated comedy set in the great city of New Orleans...</p>
+        <a href="#">Read more</a> </div>
+      <div class="cl">&nbsp;</div>
+      <div class="content">
+        <h4>The Princess and the Frog </h4>
+        <a href="#"><img src="{% static 'css/images/coming-soon2.jpg' %}" alt="" /></a>
+        <p>Walt Disney Animation Studios presents the musical &quot;The Princess and the Frog,&quot; an animated comedy set in the great city of New Orleans...</p>
+        <a href="#">Read more</a> </div>
+    </div>
+    <div class="cl">&nbsp;</div>
+  </div>
+</div>
+    <div class="cl">&nbsp;</div>
+  </div>
+  <div id="footer">
+    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+    <p class="rf">Design by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+
+</body>
+</html>

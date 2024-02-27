@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+        <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+
+</head>
+<body>
+    <div id="profile" class="container">
+        <div class="profile">
+            <div class="profile-info">
+                <h2>Profile Information</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="id_username">Username:</label>
+                    <input type="text" id="id_username" name="username" value="{{ user.username }}" readonly><br><br>
+                    <label for="id_email">Email:</label>
+                    <input type="email" id="id_email" name="email" value="{{ user.email }}" readonly><br><br>
+                    <label for="id_first_name">First Name:</label>
+                    <input type="text" id="id_first_name" name="first_name" value="{{ user.first_name }}"><br><br>
+                    <label for="id_last_name">Last Name:</label>
+                    <input type="text" id="id_last_name" name="last_name" value="{{ user.last_name }}"><br><br>
+                    <label for="id_date_of_birth">Date of Birth:</label>
+                    <input type="date" id="id_date_of_birth" name="date_of_birth" value="{{ user.date_of_birth }}"><br><br>
+                    <label for="id_profile_photo">Profile Photo:</label>
+                    <input type="file" id="id_profile_photo" name="profile_photo"><br><br>
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="profile-photo">
+                {% if user.profile_photo %}
+                    <img src="{{ user.profile_photo.url }}" alt="Profile Photo">
+
+                {% endif %}
+
+<!--                <div class="buttons-container">-->
+<!--               <input type="submit" name="Submit">Save</input>-->
+<!--                </div>-->
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
